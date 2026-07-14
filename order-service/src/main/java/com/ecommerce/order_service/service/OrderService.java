@@ -22,11 +22,11 @@ public class OrderService {
     public Order create(Order order) {
 
         restTemplate.getForObject(
-                "http://localhost:8082/products/" + order.getProductId(),
+                "http://PRODUCT-SERVICE/products/" + order.getProductId(),
                 Object.class);
 
         restTemplate.getForObject(
-                "http://localhost:8083/inventory/" + order.getProductId(),
+                "http://INVENTORY-SERVICE/inventory/" + order.getProductId(),
                 Object.class);
 
         order.setStatus("CREATED");
